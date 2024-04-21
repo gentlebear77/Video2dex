@@ -1,0 +1,501 @@
+<mujoco model="Adroit">
+  <compiler angle="radian" />
+  <option apirate="200" iterations="20" noslip_iterations="20" cone="elliptic" solver="PGS" />
+  <size njmax="2000" nconmax="500" nstack="600000" nuser_body="9" nuser_jnt="1" nuser_site="1" nuser_tendon="1" nuser_actuator="16" nuser_sensor="1" />
+  <default /><asset>
+    <material name="MatColl" specular="1" shininess="0.3" reflectance="0.5" rgba="0.4 0.5 0.6 1" />
+    <material name="MatViz" specular="0.75" shininess="0.1" reflectance="0.5" rgba="0.9 0.7 0.5 1" />
+    <mesh file="/home/gentlebear/Diffusion_Policy/video2dex/third_party/dexmv-sim/hand_imitation/env/models/assets/adroit/meshes/forearm_simple.stl" name="forearm_simple" scale="1 1 1" />
+    <mesh file="/home/gentlebear/Diffusion_Policy/video2dex/third_party/dexmv-sim/hand_imitation/env/models/assets/adroit/meshes/wrist.stl" name="wrist" scale="0.001 0.001 0.001" />
+    <mesh file="/home/gentlebear/Diffusion_Policy/video2dex/third_party/dexmv-sim/hand_imitation/env/models/assets/adroit/meshes/palm.stl" name="palm" scale="0.001 0.001 0.001" />
+    <mesh file="/home/gentlebear/Diffusion_Policy/video2dex/third_party/dexmv-sim/hand_imitation/env/models/assets/adroit/meshes/lfmetacarpal.stl" name="lfmetacarpal" scale="0.001 0.001 0.001" />
+    <mesh file="/home/gentlebear/Diffusion_Policy/video2dex/third_party/dexmv-sim/hand_imitation/env/models/assets/adroit/meshes/knuckle.stl" name="knuckle" scale="0.001 0.001 0.001" />
+    <mesh file="/home/gentlebear/Diffusion_Policy/video2dex/third_party/dexmv-sim/hand_imitation/env/models/assets/adroit/meshes/F3.stl" name="F3" scale="0.001 0.001 0.001" />
+    <mesh file="/home/gentlebear/Diffusion_Policy/video2dex/third_party/dexmv-sim/hand_imitation/env/models/assets/adroit/meshes/F2.stl" name="F2" scale="0.001 0.001 0.001" />
+    <mesh file="/home/gentlebear/Diffusion_Policy/video2dex/third_party/dexmv-sim/hand_imitation/env/models/assets/adroit/meshes/F1.stl" name="F1" scale="0.001 0.001 0.001" />
+    <mesh file="/home/gentlebear/Diffusion_Policy/video2dex/third_party/dexmv-sim/hand_imitation/env/models/assets/adroit/meshes/TH3_z.stl" name="TH3_z" scale="0.001 0.001 0.001" />
+    <mesh file="/home/gentlebear/Diffusion_Policy/video2dex/third_party/dexmv-sim/hand_imitation/env/models/assets/adroit/meshes/TH2_z.stl" name="TH2_z" scale="0.001 0.001 0.001" />
+    <mesh file="/home/gentlebear/Diffusion_Policy/video2dex/third_party/dexmv-sim/hand_imitation/env/models/assets/adroit/meshes/TH1_z.stl" name="TH1_z" scale="0.001 0.001 0.001" />
+  <texture builtin="gradient" height="256" rgb1=".9 .9 1." rgb2=".2 .3 .4" type="skybox" width="256" />
+        <texture file="/home/gentlebear/Diffusion_Policy/video2dex/third_party/dexmv-sim/hand_imitation/env/models/assets/arenas/../textures/wood-tiles.png" type="2d" name="texplane" />
+        <material name="floorplane" reflectance="0.01" shininess="0.0" specular="0.0" texrepeat="2 2" texture="texplane" texuniform="true" />
+        
+        <texture file="/home/gentlebear/Diffusion_Policy/video2dex/third_party/dexmv-sim/hand_imitation/env/models/assets/arenas/../textures/ceramic.png" type="cube" name="tex-ceramic" />
+        <material name="table_ceramic" reflectance="0.0" shininess="0.0" specular="0.2" texrepeat="1 1" texture="tex-ceramic" />
+        
+        <texture file="/home/gentlebear/Diffusion_Policy/video2dex/third_party/dexmv-sim/hand_imitation/env/models/assets/arenas/../textures/steel-brushed.png" type="cube" name="tex-steel-brushed" />
+        <material name="table_legs_metal" reflectance="0.8" shininess="0.8" texrepeat="1 1" texture="tex-steel-brushed" />
+        
+        <texture file="/home/gentlebear/Diffusion_Policy/video2dex/third_party/dexmv-sim/hand_imitation/env/models/assets/arenas/../textures/cream-plaster.png" type="2d" name="tex-cream-plaster" />
+        <material name="walls_mat" reflectance="0.0" shininess="0.1" specular="0.1" texrepeat="3 3" texture="tex-cream-plaster" texuniform="true" />
+        
+        <texture name="textable" builtin="flat" height="512" width="512" rgb1="0.5 0.5 0.5" rgb2="0.5 0.5 0.5" />
+        <material name="table_mat" texture="textable" />
+    <mesh file="/home/gentlebear/Diffusion_Policy/video2dex/third_party/dexmv-sim/hand_imitation/env/utils/../models/assets/ycb/collision/025_mug/v0/025_mug_1.stl" name="mug_collision_mesh_1" scale="1 1 1" /><mesh file="/home/gentlebear/Diffusion_Policy/video2dex/third_party/dexmv-sim/hand_imitation/env/utils/../models/assets/ycb/collision/025_mug/v0/025_mug_10.stl" name="mug_collision_mesh_2" scale="1 1 1" /><mesh file="/home/gentlebear/Diffusion_Policy/video2dex/third_party/dexmv-sim/hand_imitation/env/utils/../models/assets/ycb/collision/025_mug/v0/025_mug_11.stl" name="mug_collision_mesh_3" scale="1 1 1" /><mesh file="/home/gentlebear/Diffusion_Policy/video2dex/third_party/dexmv-sim/hand_imitation/env/utils/../models/assets/ycb/collision/025_mug/v0/025_mug_12.stl" name="mug_collision_mesh_4" scale="1 1 1" /><mesh file="/home/gentlebear/Diffusion_Policy/video2dex/third_party/dexmv-sim/hand_imitation/env/utils/../models/assets/ycb/collision/025_mug/v0/025_mug_13.stl" name="mug_collision_mesh_5" scale="1 1 1" /><mesh file="/home/gentlebear/Diffusion_Policy/video2dex/third_party/dexmv-sim/hand_imitation/env/utils/../models/assets/ycb/collision/025_mug/v0/025_mug_14.stl" name="mug_collision_mesh_6" scale="1 1 1" /><mesh file="/home/gentlebear/Diffusion_Policy/video2dex/third_party/dexmv-sim/hand_imitation/env/utils/../models/assets/ycb/collision/025_mug/v0/025_mug_15.stl" name="mug_collision_mesh_7" scale="1 1 1" /><mesh file="/home/gentlebear/Diffusion_Policy/video2dex/third_party/dexmv-sim/hand_imitation/env/utils/../models/assets/ycb/collision/025_mug/v0/025_mug_16.stl" name="mug_collision_mesh_8" scale="1 1 1" /><mesh file="/home/gentlebear/Diffusion_Policy/video2dex/third_party/dexmv-sim/hand_imitation/env/utils/../models/assets/ycb/collision/025_mug/v0/025_mug_17.stl" name="mug_collision_mesh_9" scale="1 1 1" /><mesh file="/home/gentlebear/Diffusion_Policy/video2dex/third_party/dexmv-sim/hand_imitation/env/utils/../models/assets/ycb/collision/025_mug/v0/025_mug_18.stl" name="mug_collision_mesh_10" scale="1 1 1" /><mesh file="/home/gentlebear/Diffusion_Policy/video2dex/third_party/dexmv-sim/hand_imitation/env/utils/../models/assets/ycb/collision/025_mug/v0/025_mug_19.stl" name="mug_collision_mesh_11" scale="1 1 1" /><mesh file="/home/gentlebear/Diffusion_Policy/video2dex/third_party/dexmv-sim/hand_imitation/env/utils/../models/assets/ycb/collision/025_mug/v0/025_mug_2.stl" name="mug_collision_mesh_12" scale="1 1 1" /><mesh file="/home/gentlebear/Diffusion_Policy/video2dex/third_party/dexmv-sim/hand_imitation/env/utils/../models/assets/ycb/collision/025_mug/v0/025_mug_20.stl" name="mug_collision_mesh_13" scale="1 1 1" /><mesh file="/home/gentlebear/Diffusion_Policy/video2dex/third_party/dexmv-sim/hand_imitation/env/utils/../models/assets/ycb/collision/025_mug/v0/025_mug_21.stl" name="mug_collision_mesh_14" scale="1 1 1" /><mesh file="/home/gentlebear/Diffusion_Policy/video2dex/third_party/dexmv-sim/hand_imitation/env/utils/../models/assets/ycb/collision/025_mug/v0/025_mug_22.stl" name="mug_collision_mesh_15" scale="1 1 1" /><mesh file="/home/gentlebear/Diffusion_Policy/video2dex/third_party/dexmv-sim/hand_imitation/env/utils/../models/assets/ycb/collision/025_mug/v0/025_mug_23.stl" name="mug_collision_mesh_16" scale="1 1 1" /><mesh file="/home/gentlebear/Diffusion_Policy/video2dex/third_party/dexmv-sim/hand_imitation/env/utils/../models/assets/ycb/collision/025_mug/v0/025_mug_24.stl" name="mug_collision_mesh_17" scale="1 1 1" /><mesh file="/home/gentlebear/Diffusion_Policy/video2dex/third_party/dexmv-sim/hand_imitation/env/utils/../models/assets/ycb/collision/025_mug/v0/025_mug_25.stl" name="mug_collision_mesh_18" scale="1 1 1" /><mesh file="/home/gentlebear/Diffusion_Policy/video2dex/third_party/dexmv-sim/hand_imitation/env/utils/../models/assets/ycb/collision/025_mug/v0/025_mug_26.stl" name="mug_collision_mesh_19" scale="1 1 1" /><mesh file="/home/gentlebear/Diffusion_Policy/video2dex/third_party/dexmv-sim/hand_imitation/env/utils/../models/assets/ycb/collision/025_mug/v0/025_mug_27.stl" name="mug_collision_mesh_20" scale="1 1 1" /><mesh file="/home/gentlebear/Diffusion_Policy/video2dex/third_party/dexmv-sim/hand_imitation/env/utils/../models/assets/ycb/collision/025_mug/v0/025_mug_28.stl" name="mug_collision_mesh_21" scale="1 1 1" /><mesh file="/home/gentlebear/Diffusion_Policy/video2dex/third_party/dexmv-sim/hand_imitation/env/utils/../models/assets/ycb/collision/025_mug/v0/025_mug_29.stl" name="mug_collision_mesh_22" scale="1 1 1" /><mesh file="/home/gentlebear/Diffusion_Policy/video2dex/third_party/dexmv-sim/hand_imitation/env/utils/../models/assets/ycb/collision/025_mug/v0/025_mug_3.stl" name="mug_collision_mesh_23" scale="1 1 1" /><mesh file="/home/gentlebear/Diffusion_Policy/video2dex/third_party/dexmv-sim/hand_imitation/env/utils/../models/assets/ycb/collision/025_mug/v0/025_mug_30.stl" name="mug_collision_mesh_24" scale="1 1 1" /><mesh file="/home/gentlebear/Diffusion_Policy/video2dex/third_party/dexmv-sim/hand_imitation/env/utils/../models/assets/ycb/collision/025_mug/v0/025_mug_31.stl" name="mug_collision_mesh_25" scale="1 1 1" /><mesh file="/home/gentlebear/Diffusion_Policy/video2dex/third_party/dexmv-sim/hand_imitation/env/utils/../models/assets/ycb/collision/025_mug/v0/025_mug_32.stl" name="mug_collision_mesh_26" scale="1 1 1" /><mesh file="/home/gentlebear/Diffusion_Policy/video2dex/third_party/dexmv-sim/hand_imitation/env/utils/../models/assets/ycb/collision/025_mug/v0/025_mug_33.stl" name="mug_collision_mesh_27" scale="1 1 1" /><mesh file="/home/gentlebear/Diffusion_Policy/video2dex/third_party/dexmv-sim/hand_imitation/env/utils/../models/assets/ycb/collision/025_mug/v0/025_mug_34.stl" name="mug_collision_mesh_28" scale="1 1 1" /><mesh file="/home/gentlebear/Diffusion_Policy/video2dex/third_party/dexmv-sim/hand_imitation/env/utils/../models/assets/ycb/collision/025_mug/v0/025_mug_35.stl" name="mug_collision_mesh_29" scale="1 1 1" /><mesh file="/home/gentlebear/Diffusion_Policy/video2dex/third_party/dexmv-sim/hand_imitation/env/utils/../models/assets/ycb/collision/025_mug/v0/025_mug_36.stl" name="mug_collision_mesh_30" scale="1 1 1" /><mesh file="/home/gentlebear/Diffusion_Policy/video2dex/third_party/dexmv-sim/hand_imitation/env/utils/../models/assets/ycb/collision/025_mug/v0/025_mug_37.stl" name="mug_collision_mesh_31" scale="1 1 1" /><mesh file="/home/gentlebear/Diffusion_Policy/video2dex/third_party/dexmv-sim/hand_imitation/env/utils/../models/assets/ycb/collision/025_mug/v0/025_mug_38.stl" name="mug_collision_mesh_32" scale="1 1 1" /><mesh file="/home/gentlebear/Diffusion_Policy/video2dex/third_party/dexmv-sim/hand_imitation/env/utils/../models/assets/ycb/collision/025_mug/v0/025_mug_39.stl" name="mug_collision_mesh_33" scale="1 1 1" /><mesh file="/home/gentlebear/Diffusion_Policy/video2dex/third_party/dexmv-sim/hand_imitation/env/utils/../models/assets/ycb/collision/025_mug/v0/025_mug_4.stl" name="mug_collision_mesh_34" scale="1 1 1" /><mesh file="/home/gentlebear/Diffusion_Policy/video2dex/third_party/dexmv-sim/hand_imitation/env/utils/../models/assets/ycb/collision/025_mug/v0/025_mug_40.stl" name="mug_collision_mesh_35" scale="1 1 1" /><mesh file="/home/gentlebear/Diffusion_Policy/video2dex/third_party/dexmv-sim/hand_imitation/env/utils/../models/assets/ycb/collision/025_mug/v0/025_mug_41.stl" name="mug_collision_mesh_36" scale="1 1 1" /><mesh file="/home/gentlebear/Diffusion_Policy/video2dex/third_party/dexmv-sim/hand_imitation/env/utils/../models/assets/ycb/collision/025_mug/v0/025_mug_42.stl" name="mug_collision_mesh_37" scale="1 1 1" /><mesh file="/home/gentlebear/Diffusion_Policy/video2dex/third_party/dexmv-sim/hand_imitation/env/utils/../models/assets/ycb/collision/025_mug/v0/025_mug_43.stl" name="mug_collision_mesh_38" scale="1 1 1" /><mesh file="/home/gentlebear/Diffusion_Policy/video2dex/third_party/dexmv-sim/hand_imitation/env/utils/../models/assets/ycb/collision/025_mug/v0/025_mug_44.stl" name="mug_collision_mesh_39" scale="1 1 1" /><mesh file="/home/gentlebear/Diffusion_Policy/video2dex/third_party/dexmv-sim/hand_imitation/env/utils/../models/assets/ycb/collision/025_mug/v0/025_mug_45.stl" name="mug_collision_mesh_40" scale="1 1 1" /><mesh file="/home/gentlebear/Diffusion_Policy/video2dex/third_party/dexmv-sim/hand_imitation/env/utils/../models/assets/ycb/collision/025_mug/v0/025_mug_46.stl" name="mug_collision_mesh_41" scale="1 1 1" /><mesh file="/home/gentlebear/Diffusion_Policy/video2dex/third_party/dexmv-sim/hand_imitation/env/utils/../models/assets/ycb/collision/025_mug/v0/025_mug_47.stl" name="mug_collision_mesh_42" scale="1 1 1" /><mesh file="/home/gentlebear/Diffusion_Policy/video2dex/third_party/dexmv-sim/hand_imitation/env/utils/../models/assets/ycb/collision/025_mug/v0/025_mug_48.stl" name="mug_collision_mesh_43" scale="1 1 1" /><mesh file="/home/gentlebear/Diffusion_Policy/video2dex/third_party/dexmv-sim/hand_imitation/env/utils/../models/assets/ycb/collision/025_mug/v0/025_mug_49.stl" name="mug_collision_mesh_44" scale="1 1 1" /><mesh file="/home/gentlebear/Diffusion_Policy/video2dex/third_party/dexmv-sim/hand_imitation/env/utils/../models/assets/ycb/collision/025_mug/v0/025_mug_5.stl" name="mug_collision_mesh_45" scale="1 1 1" /><mesh file="/home/gentlebear/Diffusion_Policy/video2dex/third_party/dexmv-sim/hand_imitation/env/utils/../models/assets/ycb/collision/025_mug/v0/025_mug_6.stl" name="mug_collision_mesh_46" scale="1 1 1" /><mesh file="/home/gentlebear/Diffusion_Policy/video2dex/third_party/dexmv-sim/hand_imitation/env/utils/../models/assets/ycb/collision/025_mug/v0/025_mug_7.stl" name="mug_collision_mesh_47" scale="1 1 1" /><mesh file="/home/gentlebear/Diffusion_Policy/video2dex/third_party/dexmv-sim/hand_imitation/env/utils/../models/assets/ycb/collision/025_mug/v0/025_mug_8.stl" name="mug_collision_mesh_48" scale="1 1 1" /><mesh file="/home/gentlebear/Diffusion_Policy/video2dex/third_party/dexmv-sim/hand_imitation/env/utils/../models/assets/ycb/collision/025_mug/v0/025_mug_9.stl" name="mug_collision_mesh_49" scale="1 1 1" /><mesh file="/home/gentlebear/Diffusion_Policy/video2dex/third_party/dexmv-sim/hand_imitation/env/utils/../models/assets/ycb/visual/025_mug/textured_simple_blender.msh" name="mug_visual_mesh" scale="1 1 1" /><texture file="/home/gentlebear/Diffusion_Policy/video2dex/third_party/dexmv-sim/hand_imitation/env/utils/../models/assets/ycb/visual/025_mug/texture_map.png" name="mug_texture" type="2d" /><material name="mug_material" texture="mug_texture" /></asset>
+  <worldbody>
+    <body name="forearm" pos="0 -0.7 0.2" quat="0.000563312 -0.000562864 0.706825 0.707388">
+      <inertial pos="0.001 -0.002 0.29" quat="0.982037 -0.0160006 0 -0.188007" mass="4" diaginertia="0.01 0.01 0.0075" />
+      <joint name="ARTx" pos="0 0 0" axis="1 0 0" type="slide" range="-0.25 0.25" damping="20" limited="true" margin="0.01" armature="0.001" frictionloss="0.001" />
+      <joint name="ARTy" pos="0 0 0" axis="0 1 0" type="slide" range="0 0.2" damping="20" limited="true" margin="0.01" armature="0.001" frictionloss="0.001" />
+      <joint name="ARTz" pos="0 0 0" axis="0 0 1" type="slide" range="-0.3 0.5" damping="20" limited="true" margin="0.01" armature="0.001" frictionloss="0.001" />
+      <joint name="ARRx" pos="0 0 0" axis="1 0 0" range="-0.75 0.75" damping="20" limited="true" margin="0.01" armature="0.001" frictionloss="0.001" />
+      <joint name="ARRy" pos="0 0 0" axis="0 1 0" range="-0.75 0.75" damping="20" limited="true" margin="0.01" armature="0.001" frictionloss="0.001" />
+      <joint name="ARRz" pos="0 0 0" axis="0 0 1" range="-0.75 0.75" damping="20" limited="true" margin="0.01" armature="0.001" frictionloss="0.001" />
+      <geom name="V_forearm" pos="0 -0.01 0.181" quat="0.707388 0 0 -0.706825" mesh="forearm_simple" type="mesh" contype="0" conaffinity="0" group="1" material="MatViz" friction="1 0.5 0.01" margin="0.0005" />
+      <geom name="C_forearm1" size="0.06 0.043" pos="0 0 0.29" type="capsule" rgba="0.4 0.5 0.6 0.1" conaffinity="0" group="4" material="MatColl" friction="1 0.5 0.01" margin="0.0005" />
+      <body name="wrist" pos="0 0 0.396">
+        <inertial pos="0.003 0 0.016" quat="0.504234 0.49623 0.49523 0.504234" mass="0.3" diaginertia="0.001 0.001 0.001" />
+        <joint name="WRJ1" pos="0 0 0" axis="0 1 0" range="-0.524 0.175" armature="0.005" damping="0.5" user="1123" limited="true" margin="0.01" frictionloss="0.001" />
+        <geom name="V_wrist" mesh="wrist" type="mesh" contype="0" conaffinity="0" group="1" material="MatViz" friction="1 0.5 0.01" margin="0.0005" />
+                <geom name="C_wrist" size="0.015 0.01" quat="0.707107 0.707107 0 0" type="capsule" rgba="0.4 0.5 0.6 0.1" conaffinity="0" group="4" material="MatColl" friction="1 0.5 0.01" margin="0.0005" />
+        <body name="palm" pos="0 0 0.034">
+          <inertial pos="0.006 0 0.036" quat="0.715833 0.0439898 0.0749825 0.692839" mass="0.3" diaginertia="0.001 0.001 0.001" />
+          <joint name="WRJ0" pos="0 0 0" axis="1 0 0" range="-0.785 0.611" user="1122" limited="true" margin="0.01" armature="0.001" damping="0.05" frictionloss="0.001" />
+          <geom name="V_palm" mesh="palm" type="mesh" contype="0" conaffinity="0" group="1" material="MatViz" friction="1 0.5 0.01" margin="0.0005" />
+          <geom name="C_palm0" size="0.052 0.015 0.06" pos="-0.008 0 0.038" type="box" rgba="0.4 0.5 0.6 0.1" conaffinity="0" group="4" material="MatColl" friction="1 0.5 0.01" margin="0.0005" />
+          
+          
+          <site name="S_grasp" pos="0.007 -0.05 0.07" quat="0.00863043 -0.595202 -0.00337281 -0.803523" size="0.01" rgba="0 0 0 0" />
+          <site name="Tch_ffmetacarpal" pos="0.033 -0.008 0.078" size="0.009 0.004 0.006" group="4" type="box" rgba="0.8 0.8 0.8 0.15" />
+          <site name="Tch_mfmetacarpal" pos="0.011 -0.008 0.074" size="0.009 0.004 0.014" group="4" type="box" rgba="0.8 0.8 0.8 0.15" />
+          <site name="Tch_rfmetacarpal" pos="-0.011 -0.008 0.068" size="0.009 0.004 0.016" group="4" type="box" rgba="0.8 0.8 0.8 0.15" />
+          <site name="Tch_thmetacarpal" pos="0.006 -0.008 0.042" quat="0.959662 0 0.281157 0" size="0.008 0.004 0.015" group="4" type="box" rgba="0.8 0.8 0.8 0.15" />
+          <site name="Tch_palm" pos="-0.017 -0.008 0.024" quat="0.877583 0 -0.479426 0" size="0.012 0.004 0.016" group="4" type="box" rgba="0.8 0.8 0.8 0.15" />
+          <body name="ffknuckle" pos="0.033 0 0.095">
+            <inertial pos="0 0 0" quat="0.520062 0.854102 0.00600072 -0.00300036" mass="0.008" diaginertia="1e-05 1e-05 1e-05" />
+            <joint name="FFJ3" pos="0 0 0" axis="0 1 0" range="-0.436 0.436" user="1103" limited="true" margin="0.01" armature="0.001" damping="0.05" frictionloss="0.001" />
+            <geom name="V_ffknuckle" mesh="knuckle" type="mesh" contype="0" conaffinity="0" group="1" material="MatViz" friction="1 0.5 0.01" margin="0.0005" />
+            <body name="ffproximal" pos="0 0 0">
+              <inertial pos="0 0 0.023" quat="0.707095 -0.00400054 0.00400054 0.707095" mass="0.014" diaginertia="1e-05 1e-05 1e-05" />
+              <joint name="FFJ2" pos="0 0 0" axis="1 0 0" range="0 1.571" user="1102" limited="true" margin="0.01" armature="0.001" damping="0.05" frictionloss="0.001" />
+              <geom name="V_ffproximal" mesh="F3" type="mesh" contype="0" conaffinity="0" group="1" material="MatViz" friction="1 0.5 0.01" margin="0.0005" />
+              <geom name="C_ffproximal" size="0.01 0.0225" pos="0 0 0.0225" type="capsule" conaffinity="0" group="4" material="MatColl" friction="1 0.5 0.01" margin="0.0005" />
+              <site name="Tch_ffproximal" pos="0 -0.007 0.022" size="0.009 0.004 0.012" group="4" type="box" rgba="0.8 0.8 0.8 0.15" />
+              <body name="ffmiddle" pos="0 0 0.045">
+                <inertial pos="0 0 0.011" quat="0.707107 0 0 0.707107" mass="0.012" diaginertia="1e-05 1e-05 1e-05" />
+                <joint name="FFJ1" pos="0 0 0" axis="1 0 0" range="0 1.571" user="1101" limited="true" margin="0.01" armature="0.001" damping="0.05" frictionloss="0.001" />
+                <geom name="V_ffmiddle" mesh="F2" type="mesh" contype="0" conaffinity="0" group="1" material="MatViz" friction="1 0.5 0.01" margin="0.0005" />
+                <geom name="C_ffmiddle" size="0.00805 0.0125" pos="0 0 0.0125" type="capsule" conaffinity="0" group="4" material="MatColl" friction="1 0.5 0.01" margin="0.0005" />
+                <site name="Tch_ffmiddle" pos="0 -0.007 0.013" size="0.009 0.002 0.007" group="4" type="box" rgba="0.8 0.8 0.8 0.15" />
+                <body name="ffdistal" pos="0 0 0.025">
+                  <inertial pos="0 0 0.015" quat="0.7071 -0.00300043 0.00300043 0.7071" mass="0.01" diaginertia="1e-05 1e-05 1e-05" />
+                  <joint name="FFJ0" pos="0 0 0" axis="1 0 0" range="0 1.571" user="1100" limited="true" margin="0.01" armature="0.001" damping="0.05" frictionloss="0.001" />
+                  <geom name="V_ffdistal" pos="0 0 0.001" mesh="F1" type="mesh" contype="0" conaffinity="0" group="1" material="MatViz" friction="1 0.5 0.01" margin="0.0005" />
+                  <geom name="C_ffdistal" size="0.00705 0.012" pos="0 0 0.012" type="capsule" condim="4" conaffinity="0" group="4" material="MatColl" friction="1 0.5 0.01" margin="0.0005" />
+                  <site name="S_fftip" pos="0 0 0.026" group="3" size="0.005 0 0" rgba="0.4 0.9 0.4 1" />
+                  <site name="Tch_fftip" pos="0 -0.004 0.018" size="0.009 0.004 0.013" group="4" type="box" rgba="0.8 0.8 0.8 0.15" />
+                </body>
+              </body>
+            </body>
+          </body>
+          <body name="mfknuckle" pos="0.011 0 0.099">
+            <inertial pos="0 0 0" quat="0.520062 0.854102 0.00600072 -0.00300036" mass="0.008" diaginertia="1e-05 1e-05 1e-05" />
+            <joint name="MFJ3" pos="0 0 0" axis="0 1 0" range="-0.436 0.436" user="1107" limited="true" margin="0.01" armature="0.001" damping="0.05" frictionloss="0.001" />
+            <geom name="V_mfknuckle" mesh="knuckle" type="mesh" contype="0" conaffinity="0" group="1" material="MatViz" friction="1 0.5 0.01" margin="0.0005" />
+            <body name="mfproximal" pos="0 0 0">
+              <inertial pos="0 0 0.023" quat="0.707095 -0.00400054 0.00400054 0.707095" mass="0.014" diaginertia="1e-05 1e-05 1e-05" />
+              <joint name="MFJ2" pos="0 0 0" axis="1 0 0" range="0 1.571" user="1106" limited="true" margin="0.01" armature="0.001" damping="0.05" frictionloss="0.001" />
+              <geom name="V_mfproximal" mesh="F3" type="mesh" contype="0" conaffinity="0" group="1" material="MatViz" friction="1 0.5 0.01" margin="0.0005" />
+              <geom name="C_mfproximal" size="0.01 0.0225" pos="0 0 0.0225" type="capsule" conaffinity="0" group="4" material="MatColl" friction="1 0.5 0.01" margin="0.0005" />
+              <site name="Tch_mfproximal" pos="0 -0.007 0.022" size="0.009 0.004 0.012" group="4" type="box" rgba="0.8 0.8 0.8 0.15" />
+              <body name="mfmiddle" pos="0 0 0.045">
+                <inertial pos="0 0 0.012" quat="0.707107 0 0 0.707107" mass="0.012" diaginertia="1e-05 1e-05 1e-05" />
+                <joint name="MFJ1" pos="0 0 0" axis="1 0 0" range="0 1.571" user="1105" limited="true" margin="0.01" armature="0.001" damping="0.05" frictionloss="0.001" />
+                <geom name="V_mfmiddle" mesh="F2" type="mesh" contype="0" conaffinity="0" group="1" material="MatViz" friction="1 0.5 0.01" margin="0.0005" />
+                <geom name="C_mfmiddle" size="0.00805 0.0125" pos="0 0 0.0125" type="capsule" conaffinity="0" group="4" material="MatColl" friction="1 0.5 0.01" margin="0.0005" />
+                <site name="Tch_mfmiddle" pos="0 -0.007 0.013" size="0.009 0.002 0.007" group="4" type="box" rgba="0.8 0.8 0.8 0.15" />
+                <body name="mfdistal" pos="0 0 0.025">
+                  <inertial pos="0 0 0.015" quat="0.7071 -0.00300043 0.00300043 0.7071" mass="0.01" diaginertia="1e-05 1e-05 1e-05" />
+                  <joint name="MFJ0" pos="0 0 0" axis="1 0 0" range="0 1.571" user="1104" limited="true" margin="0.01" armature="0.001" damping="0.05" frictionloss="0.001" />
+                  <geom name="V_mfdistal" mesh="F1" type="mesh" contype="0" conaffinity="0" group="1" material="MatViz" friction="1 0.5 0.01" margin="0.0005" />
+                  <geom name="C_mfdistal" size="0.00705 0.012" pos="0 0 0.012" type="capsule" condim="4" conaffinity="0" group="4" material="MatColl" friction="1 0.5 0.01" margin="0.0005" />
+                  <site name="S_mftip" pos="0 0 0.026" group="3" size="0.005 0 0" rgba="0.4 0.9 0.4 1" />
+                  <site name="Tch_mftip" pos="0 -0.004 0.018" size="0.009 0.004 0.013" group="4" type="box" rgba="0.8 0.8 0.8 0.15" />
+                </body>
+              </body>
+            </body>
+          </body>
+          <body name="rfknuckle" pos="-0.011 0 0.095">
+            <inertial pos="0 0 0" quat="0.520062 0.854102 0.00600072 -0.00300036" mass="0.008" diaginertia="1e-05 1e-05 1e-05" />
+            <joint name="RFJ3" pos="0 0 0" axis="0 1 0" range="-0.436 0.436" user="1111" limited="true" margin="0.01" armature="0.001" damping="0.05" frictionloss="0.001" />
+            <geom name="V_rfknuckle" mesh="knuckle" type="mesh" contype="0" conaffinity="0" group="1" material="MatViz" friction="1 0.5 0.01" margin="0.0005" />
+            <body name="rfproximal" pos="0 0 0">
+              <inertial pos="0 0 0.023" quat="0.707095 -0.00400054 0.00400054 0.707095" mass="0.014" diaginertia="1e-05 1e-05 1e-05" />
+              <joint name="RFJ2" pos="0 0 0" axis="1 0 0" range="0 1.571" user="1110" limited="true" margin="0.01" armature="0.001" damping="0.05" frictionloss="0.001" />
+              <geom name="V_rfproximal" mesh="F3" type="mesh" contype="0" conaffinity="0" group="1" material="MatViz" friction="1 0.5 0.01" margin="0.0005" />
+              <geom name="C_rfproximal" size="0.01 0.0225" pos="0 0 0.0225" type="capsule" conaffinity="0" group="4" material="MatColl" friction="1 0.5 0.01" margin="0.0005" />
+              <site name="Tch_rfproximal" pos="0 -0.007 0.022" size="0.009 0.004 0.012" group="4" type="box" rgba="0.8 0.8 0.8 0.15" />
+              <body name="rfmiddle" pos="0 0 0.045">
+                <inertial pos="0 0 0.012" quat="0.707107 0 0 0.707107" mass="0.012" diaginertia="1e-05 1e-05 1e-05" />
+                <joint name="RFJ1" pos="0 0 0" axis="1 0 0" range="0 1.571" user="1109" limited="true" margin="0.01" armature="0.001" damping="0.05" frictionloss="0.001" />
+                <geom name="V_rfmiddle" mesh="F2" type="mesh" contype="0" conaffinity="0" group="1" material="MatViz" friction="1 0.5 0.01" margin="0.0005" />
+                <geom name="C_rfmiddle" size="0.00805 0.0125" pos="0 0 0.0125" type="capsule" conaffinity="0" group="4" material="MatColl" friction="1 0.5 0.01" margin="0.0005" />
+                <site name="Tch_rfmiddle" pos="0 -0.007 0.013" size="0.009 0.002 0.007" group="4" type="box" rgba="0.8 0.8 0.8 0.15" />
+                <body name="rfdistal" pos="0 0 0.025">
+                  <inertial pos="0 0 0.015" quat="0.7071 -0.00300043 0.00300043 0.7071" mass="0.01" diaginertia="1e-05 1e-05 1e-05" />
+                  <joint name="RFJ0" pos="0 0 0" axis="1 0 0" range="0 1.571" user="1108" limited="true" margin="0.01" armature="0.001" damping="0.05" frictionloss="0.001" />
+                  <geom name="V_rfdistal" pos="0 0 0.001" mesh="F1" type="mesh" contype="0" conaffinity="0" group="1" material="MatViz" friction="1 0.5 0.01" margin="0.0005" />
+                  <geom name="C_rfdistal" size="0.00705 0.012" pos="0 0 0.012" type="capsule" condim="4" conaffinity="0" group="4" material="MatColl" friction="1 0.5 0.01" margin="0.0005" />
+                  <site name="S_rftip" pos="0 0 0.026" group="3" size="0.005 0 0" rgba="0.4 0.9 0.4 1" />
+                  <site name="Tch_rftip" pos="0 -0.004 0.018" size="0.009 0.004 0.013" group="4" type="box" rgba="0.8 0.8 0.8 0.15" />
+                </body>
+              </body>
+            </body>
+          </body>
+          <body name="lfmetacarpal" pos="-0.017 0 0.044">
+            <inertial pos="-0.014 0.001 0.014" quat="0.709167 -0.0920216 -0.0630148 0.696164" mass="0.075" diaginertia="1e-05 1e-05 1e-05" />
+            <joint name="LFJ4" pos="0 0 0" axis="0.570977 0 0.820966" range="0 0.698" user="1116" limited="true" margin="0.01" armature="0.001" damping="0.05" frictionloss="0.001" />
+            <geom name="V_lfmetacarpal" pos="-0.016 0 -0.023" mesh="lfmetacarpal" type="mesh" contype="0" conaffinity="0" group="1" material="MatViz" friction="1 0.5 0.01" margin="0.0005" />
+            
+            
+            <site name="Tch_lfmetacarpal" pos="-0.016 -0.008 0.017" size="0.009 0.004 0.014" group="4" type="box" rgba="0.8 0.8 0.8 0.15" />
+            <body name="lfknuckle" pos="-0.017 0 0.044">
+              <inertial pos="0 0 0" quat="0.520062 0.854102 0.00600072 -0.00300036" mass="0.008" diaginertia="1e-05 1e-05 1e-05" />
+              <joint name="LFJ3" pos="0 0 0" axis="0 1 0" range="-0.436 0.436" user="1115" limited="true" margin="0.01" armature="0.001" damping="0.05" frictionloss="0.001" />
+              <geom name="V_lfknuckle" mesh="knuckle" type="mesh" contype="0" conaffinity="0" group="1" material="MatViz" friction="1 0.5 0.01" margin="0.0005" />
+              <body name="lfproximal" pos="0 0 0">
+                <inertial pos="0 0 0.023" quat="0.707095 -0.00400054 0.00400054 0.707095" mass="0.014" diaginertia="1e-05 1e-05 1e-05" />
+                <joint name="LFJ2" pos="0 0 0" axis="1 0 0" range="0 1.571" user="1114" limited="true" margin="0.01" armature="0.001" damping="0.05" frictionloss="0.001" />
+                <geom name="V_lfproximal" mesh="F3" type="mesh" contype="0" conaffinity="0" group="1" material="MatViz" friction="1 0.5 0.01" margin="0.0005" />
+                <geom name="C_lfproximal" size="0.01 0.0225" pos="0 0 0.0225" type="capsule" conaffinity="0" group="4" material="MatColl" friction="1 0.5 0.01" margin="0.0005" />
+                <site name="Tch_lfproximal" pos="0 -0.007 0.022" size="0.009 0.004 0.012" group="4" type="box" rgba="0.8 0.8 0.8 0.15" />
+                <body name="lfmiddle" pos="0 0 0.045">
+                  <inertial pos="0 0 0.012" quat="0.707107 0 0 0.707107" mass="0.012" diaginertia="1e-05 1e-05 1e-05" />
+                  <joint name="LFJ1" pos="0 0 0" axis="1 0 0" range="0 1.571" user="1113" limited="true" margin="0.01" armature="0.001" damping="0.05" frictionloss="0.001" />
+                  <geom name="V_lfmiddle" mesh="F2" type="mesh" contype="0" conaffinity="0" group="1" material="MatViz" friction="1 0.5 0.01" margin="0.0005" />
+                  <geom name="C_lfmiddle" size="0.00805 0.0125" pos="0 0 0.0125" type="capsule" conaffinity="0" group="4" material="MatColl" friction="1 0.5 0.01" margin="0.0005" />
+                  <site name="Tch_lfmiddle" pos="0 -0.007 0.013" size="0.009 0.002 0.007" group="4" type="box" rgba="0.8 0.8 0.8 0.15" />
+                  <body name="lfdistal" pos="0 0 0.025">
+                    <inertial pos="0 0 0.015" quat="0.7071 -0.00300043 0.00300043 0.7071" mass="0.01" diaginertia="1e-05 1e-05 1e-05" />
+                    <joint name="LFJ0" pos="0 0 0" axis="1 0 0" range="0 1.571" user="1112" limited="true" margin="0.01" armature="0.001" damping="0.05" frictionloss="0.001" />
+                    <geom name="V_lfdistal" pos="0 0 0.001" mesh="F1" type="mesh" contype="0" conaffinity="0" group="1" material="MatViz" friction="1 0.5 0.01" margin="0.0005" />
+                    <geom name="C_lfdistal" size="0.00705 0.012" pos="0 0 0.012" type="capsule" condim="4" conaffinity="0" group="4" material="MatColl" friction="1 0.5 0.01" margin="0.0005" />
+                    <site name="S_lftip" pos="0 0 0.026" group="3" size="0.005 0 0" rgba="0.4 0.9 0.4 1" />
+                    <site name="Tch_lftip" pos="0 -0.004 0.018" size="0.009 0.004 0.013" group="4" type="box" rgba="0.8 0.8 0.8 0.15" />
+                  </body>
+                </body>
+              </body>
+            </body>
+          </body>
+          <body name="thbase" pos="0.034 -0.009 0.029" quat="0.923956 0 0.382499 0">
+            <inertial pos="0 0 0" mass="0.01" diaginertia="1e-05 1e-05 1e-05" />
+            <joint name="THJ4" pos="0 0 0" axis="0 0 -1" range="-1.047 1.047" user="1121" limited="true" margin="0.01" armature="0.001" damping="0.05" frictionloss="0.001" />
+            <geom name="V_thbase" size="0.001 0.001 0.001" type="box" group="1" />
+            <body name="thproximal" pos="0 0 0">
+              <inertial pos="0 0 0.017" quat="0.981604 0 0.000999597 0.190923" mass="0.016" diaginertia="1e-05 1e-05 1e-05" />
+              <joint name="THJ3" pos="0 0 0" axis="1 0 0" range="0 1.309" user="1120" limited="true" margin="0.01" armature="0.001" damping="0.05" frictionloss="0.001" />
+              <geom name="V_thproximal" mesh="TH3_z" type="mesh" contype="0" conaffinity="0" group="1" material="MatViz" friction="1 0.5 0.01" margin="0.0005" />
+              <geom name="C_thproximal" size="0.013 0.019" pos="0 0 0.019" type="capsule" rgba="0.4 0.5 0.6 0.1" conaffinity="0" group="4" material="MatColl" friction="1 0.5 0.01" margin="0.0005" />
+              <site name="Tch_thproximal" pos="-0.008 0 0.022" size="0.005 0.011 0.011" group="4" type="box" rgba="0.8 0.8 0.8 0.15" />
+              <body name="thhub" pos="0 0 0.038">
+                <inertial pos="0 0 0" mass="0.002" diaginertia="1e-05 1e-05 1e-05" />
+                <joint name="THJ2" pos="0 0 0" axis="1 0 0" range="-0.262 0.262" user="1119" limited="true" margin="0.01" armature="0.001" damping="0.05" frictionloss="0.001" />
+                <geom name="V_thhub" size="0.001 0.001 0.001" type="box" group="1" />
+                <body name="thmiddle" pos="0 0 0">
+                  <inertial pos="0 0 0.016" quat="0.999971 -0.000999971 -0.00699979 0.00299991" mass="0.016" diaginertia="1e-05 1e-05 1e-05" />
+                  <joint name="THJ1" pos="0 0 0" axis="0 1 0" range="-0.524 0.524" user="1118" limited="true" margin="0.01" armature="0.001" damping="0.05" frictionloss="0.001" />
+                  <geom name="V_thmiddle" mesh="TH2_z" type="mesh" contype="0" conaffinity="0" group="1" material="MatViz" friction="1 0.5 0.01" margin="0.0005" />
+                  <geom name="C_thmiddle" size="0.011 0.016" pos="0 0 0.016" type="capsule" conaffinity="0" group="4" material="MatColl" friction="1 0.5 0.01" margin="0.0005" />
+                  <site name="Tch_thmiddle" pos="-0.008 0 0.018" size="0.005 0.011 0.011" group="4" type="box" rgba="0.8 0.8 0.8 0.15" />
+                  <body name="thdistal" pos="0 0 0.032">
+                    <inertial pos="0 0 0.016" quat="0.99887 -0.00499935 -0.0469939 0.00499935" mass="0.016" diaginertia="1e-05 1e-05 1e-05" />
+                    <joint name="THJ0" pos="0 0 0" axis="0 1 0" range="-1.571 0" user="1117" limited="true" margin="0.01" armature="0.001" damping="0.05" frictionloss="0.001" />
+                    <geom name="V_thdistal" mesh="TH1_z" type="mesh" contype="0" conaffinity="0" group="1" material="MatViz" friction="1 0.5 0.01" margin="0.0005" />
+                    <geom name="C_thdistal" size="0.00918 0.013" pos="0 0 0.013" type="capsule" condim="4" conaffinity="0" group="4" material="MatColl" friction="1 0.5 0.01" margin="0.0005" />
+                    <site name="S_thtip" pos="0 0 0.0275" group="3" size="0.005 0 0" rgba="0.4 0.9 0.4 1" />
+                    <site name="Tch_thtip" pos="-0.005 0 0.02" size="0.005 0.011 0.016" group="4" type="box" rgba="0.8 0.8 0.8 0.15" />
+                  </body>
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+    </body>
+  <geom condim="3" material="floorplane" name="floor" pos="0 0 -1" size="1.5 1.5 .125" type="plane" />
+        
+        <body name="table" pos="0.0 0.0 -0.025000000000000022">
+            <geom pos="0 0 0" size="0.6 0.6 0.025" type="box" group="2" name="table_collision" friction="1 0.5 0.01" rgba="0.5 0.5 0 1" />
+            <geom pos="0 0 0" size="0.6 0.6 0.025" type="box" conaffinity="0" contype="0" group="1" name="table_visual" material="table_ceramic" />
+            <site pos="0.0 0.0 0.025" name="table_top" size="0.001 0.001 0.001" rgba="0 0 0 0" />
+            
+            <geom pos="0.5 0.5 -0.4875" size="0.025 0.4875" type="cylinder" conaffinity="0" contype="0" group="1" name="table_leg1_visual" material="table_legs_metal" />
+            <geom pos="-0.5 0.5 -0.4875" size="0.025 0.4875" type="cylinder" conaffinity="0" contype="0" group="1" name="table_leg2_visual" material="table_legs_metal" />
+            <geom pos="-0.5 -0.5 -0.4875" size="0.025 0.4875" type="cylinder" conaffinity="0" contype="0" group="1" name="table_leg3_visual" material="table_legs_metal" />
+            <geom pos="0.5 -0.5 -0.4875" size="0.025 0.4875" type="cylinder" conaffinity="0" contype="0" group="1" name="table_leg4_visual" material="table_legs_metal" />
+        </body>
+
+        <light name="light1" diffuse=".8 .8 .8" dir="0 -.15 -1" directional="false" pos="1 1 4.0" specular="0.3 0.3 0.3" castshadow="false" />
+        <light name="light2" diffuse=".8 .8 .8" dir="0 -.15 -1" directional="false" pos="-3. -3. 4.0" specular="0.3 0.3 0.3" castshadow="false" />
+        <camera mode="fixed" name="zeroview" pos="0 0 0" quat="0 1 0 0" />
+        <camera mode="fixed" name="frontview" pos="0 -1 0.9" quat="0.65 0.2705981, 0.2705981, 0.6532815" />
+        <camera mode="fixed" name="backview" pos="0 0.6 0.9" quat="0 0 0.2815 0.9595" />
+        <camera mode="fixed" name="sideview" pos="-1.3 -0.5 0.5" quat=" 0.6781121 0.5164697 -0.3290275 -0.4064037" />
+    <body name="mug_0" pos="0 0 0.04065" quat="0.707 0 0 0.707"><geom type="mesh" mesh="mug_collision_mesh_1" name="collision_mug_1" density="1000" group="2" condim="4" margin="0.003" /><geom type="mesh" mesh="mug_collision_mesh_2" name="collision_mug_2" density="1000" group="2" condim="4" margin="0.003" /><geom type="mesh" mesh="mug_collision_mesh_3" name="collision_mug_3" density="1000" group="2" condim="4" margin="0.003" /><geom type="mesh" mesh="mug_collision_mesh_4" name="collision_mug_4" density="1000" group="2" condim="4" margin="0.003" /><geom type="mesh" mesh="mug_collision_mesh_5" name="collision_mug_5" density="1000" group="2" condim="4" margin="0.003" /><geom type="mesh" mesh="mug_collision_mesh_6" name="collision_mug_6" density="1000" group="2" condim="4" margin="0.003" /><geom type="mesh" mesh="mug_collision_mesh_7" name="collision_mug_7" density="1000" group="2" condim="4" margin="0.003" /><geom type="mesh" mesh="mug_collision_mesh_8" name="collision_mug_8" density="1000" group="2" condim="4" margin="0.003" /><geom type="mesh" mesh="mug_collision_mesh_9" name="collision_mug_9" density="1000" group="2" condim="4" margin="0.003" /><geom type="mesh" mesh="mug_collision_mesh_10" name="collision_mug_10" density="1000" group="2" condim="4" margin="0.003" /><geom type="mesh" mesh="mug_collision_mesh_11" name="collision_mug_11" density="1000" group="2" condim="4" margin="0.003" /><geom type="mesh" mesh="mug_collision_mesh_12" name="collision_mug_12" density="1000" group="2" condim="4" margin="0.003" /><geom type="mesh" mesh="mug_collision_mesh_13" name="collision_mug_13" density="1000" group="2" condim="4" margin="0.003" /><geom type="mesh" mesh="mug_collision_mesh_14" name="collision_mug_14" density="1000" group="2" condim="4" margin="0.003" /><geom type="mesh" mesh="mug_collision_mesh_15" name="collision_mug_15" density="1000" group="2" condim="4" margin="0.003" /><geom type="mesh" mesh="mug_collision_mesh_16" name="collision_mug_16" density="1000" group="2" condim="4" margin="0.003" /><geom type="mesh" mesh="mug_collision_mesh_17" name="collision_mug_17" density="1000" group="2" condim="4" margin="0.003" /><geom type="mesh" mesh="mug_collision_mesh_18" name="collision_mug_18" density="1000" group="2" condim="4" margin="0.003" /><geom type="mesh" mesh="mug_collision_mesh_19" name="collision_mug_19" density="1000" group="2" condim="4" margin="0.003" /><geom type="mesh" mesh="mug_collision_mesh_20" name="collision_mug_20" density="1000" group="2" condim="4" margin="0.003" /><geom type="mesh" mesh="mug_collision_mesh_21" name="collision_mug_21" density="1000" group="2" condim="4" margin="0.003" /><geom type="mesh" mesh="mug_collision_mesh_22" name="collision_mug_22" density="1000" group="2" condim="4" margin="0.003" /><geom type="mesh" mesh="mug_collision_mesh_23" name="collision_mug_23" density="1000" group="2" condim="4" margin="0.003" /><geom type="mesh" mesh="mug_collision_mesh_24" name="collision_mug_24" density="1000" group="2" condim="4" margin="0.003" /><geom type="mesh" mesh="mug_collision_mesh_25" name="collision_mug_25" density="1000" group="2" condim="4" margin="0.003" /><geom type="mesh" mesh="mug_collision_mesh_26" name="collision_mug_26" density="1000" group="2" condim="4" margin="0.003" /><geom type="mesh" mesh="mug_collision_mesh_27" name="collision_mug_27" density="1000" group="2" condim="4" margin="0.003" /><geom type="mesh" mesh="mug_collision_mesh_28" name="collision_mug_28" density="1000" group="2" condim="4" margin="0.003" /><geom type="mesh" mesh="mug_collision_mesh_29" name="collision_mug_29" density="1000" group="2" condim="4" margin="0.003" /><geom type="mesh" mesh="mug_collision_mesh_30" name="collision_mug_30" density="1000" group="2" condim="4" margin="0.003" /><geom type="mesh" mesh="mug_collision_mesh_31" name="collision_mug_31" density="1000" group="2" condim="4" margin="0.003" /><geom type="mesh" mesh="mug_collision_mesh_32" name="collision_mug_32" density="1000" group="2" condim="4" margin="0.003" /><geom type="mesh" mesh="mug_collision_mesh_33" name="collision_mug_33" density="1000" group="2" condim="4" margin="0.003" /><geom type="mesh" mesh="mug_collision_mesh_34" name="collision_mug_34" density="1000" group="2" condim="4" margin="0.003" /><geom type="mesh" mesh="mug_collision_mesh_35" name="collision_mug_35" density="1000" group="2" condim="4" margin="0.003" /><geom type="mesh" mesh="mug_collision_mesh_36" name="collision_mug_36" density="1000" group="2" condim="4" margin="0.003" /><geom type="mesh" mesh="mug_collision_mesh_37" name="collision_mug_37" density="1000" group="2" condim="4" margin="0.003" /><geom type="mesh" mesh="mug_collision_mesh_38" name="collision_mug_38" density="1000" group="2" condim="4" margin="0.003" /><geom type="mesh" mesh="mug_collision_mesh_39" name="collision_mug_39" density="1000" group="2" condim="4" margin="0.003" /><geom type="mesh" mesh="mug_collision_mesh_40" name="collision_mug_40" density="1000" group="2" condim="4" margin="0.003" /><geom type="mesh" mesh="mug_collision_mesh_41" name="collision_mug_41" density="1000" group="2" condim="4" margin="0.003" /><geom type="mesh" mesh="mug_collision_mesh_42" name="collision_mug_42" density="1000" group="2" condim="4" margin="0.003" /><geom type="mesh" mesh="mug_collision_mesh_43" name="collision_mug_43" density="1000" group="2" condim="4" margin="0.003" /><geom type="mesh" mesh="mug_collision_mesh_44" name="collision_mug_44" density="1000" group="2" condim="4" margin="0.003" /><geom type="mesh" mesh="mug_collision_mesh_45" name="collision_mug_45" density="1000" group="2" condim="4" margin="0.003" /><geom type="mesh" mesh="mug_collision_mesh_46" name="collision_mug_46" density="1000" group="2" condim="4" margin="0.003" /><geom type="mesh" mesh="mug_collision_mesh_47" name="collision_mug_47" density="1000" group="2" condim="4" margin="0.003" /><geom type="mesh" mesh="mug_collision_mesh_48" name="collision_mug_48" density="1000" group="2" condim="4" margin="0.003" /><geom type="mesh" mesh="mug_collision_mesh_49" name="collision_mug_49" density="1000" group="2" condim="4" margin="0.003" /><geom mesh="mug_visual_mesh" group="1" type="mesh" contype="0" conaffinity="0" material="mug_material" /><joint type="free" name="mug_joint_0" limited="false" damping="0" frictionloss="0.001" armature="0.001" /></body><body name="target" pos="0.10845 0.0965 0.16065" quat="0.707 0 0 0.707"><geom type="mesh" mesh="mug_visual_mesh" contype="0" conaffinity="0" rgba="0 1 0 0.125" /></body></worldbody>
+  <contact>
+    <pair geom1="C_palm0" geom2="C_thdistal" condim="1" />
+    <pair geom1="C_ffproximal" geom2="C_mfproximal" condim="1" />
+    <pair geom1="C_ffproximal" geom2="C_thdistal" condim="1" />
+    <pair geom1="C_ffmiddle" geom2="C_thdistal" condim="1" />
+    <pair geom1="C_ffdistal" geom2="C_mfdistal" condim="1" />
+    <pair geom1="C_ffdistal" geom2="C_thdistal" condim="1" />
+    <pair geom1="C_mfproximal" geom2="C_rfproximal" condim="1" />
+    <pair geom1="C_mfproximal" geom2="C_thdistal" condim="1" />
+    <pair geom1="C_mfdistal" geom2="C_rfdistal" condim="1" />
+    <pair geom1="C_mfdistal" geom2="C_lfdistal" condim="1" />
+    <pair geom1="C_mfdistal" geom2="C_thdistal" condim="1" />
+    <pair geom1="C_rfproximal" geom2="C_lfproximal" condim="1" />
+    <pair geom1="C_rfmiddle" geom2="C_lfmiddle" condim="1" />
+    <pair geom1="C_rfmiddle" geom2="C_lfdistal" condim="1" />
+    <pair geom1="C_rfdistal" geom2="C_lfmiddle" condim="1" />
+    <pair geom1="C_rfdistal" geom2="C_lfdistal" condim="1" />
+    <pair geom1="C_rfdistal" geom2="C_lfdistal" condim="1" />
+    <pair geom1="C_rfdistal" geom2="C_thdistal" condim="1" />
+    <pair geom1="C_lfdistal" geom2="C_thdistal" condim="1" />
+  </contact>
+  <tendon>
+    <fixed name="T_WRJ1r" range="-0.032 0.032" user="1236" limited="true">
+      <joint joint="WRJ1" coef="0.018" />
+    </fixed>
+    <fixed name="T_WRJ1l" range="-0.032 0.032" user="1237" limited="true">
+      <joint joint="WRJ1" coef="-0.018" />
+    </fixed>
+    <fixed name="T_WRJ0u" range="-0.032 0.032" user="1236" limited="true">
+      <joint joint="WRJ0" coef="0.018" />
+    </fixed>
+    <fixed name="T_WRJ0d" range="-0.032 0.032" user="1237" limited="true">
+      <joint joint="WRJ0" coef="-0.018" />
+    </fixed>
+    <fixed name="T_FFJ3r" range="-0.018 0.018" user="1204" limited="true">
+      <joint joint="FFJ3" coef="0.01" />
+    </fixed>
+    <fixed name="T_FFJ3l" range="-0.018 0.018" user="1205" limited="true">
+      <joint joint="FFJ3" coef="-0.01" />
+    </fixed>
+    <fixed name="T_FFJ2u" range="-0.007 0.03" user="1202" limited="true">
+      <joint joint="FFJ2" coef="0.01" />
+    </fixed>
+    <fixed name="T_FFJ2d" range="-0.03 0.007" user="1203" limited="true">
+      <joint joint="FFJ2" coef="-0.01" />
+    </fixed>
+    <fixed name="T_FFJ1c" range="-0.001 0.001" limited="true">
+      <joint joint="FFJ0" coef="0.00705" />
+      <joint joint="FFJ1" coef="-0.00805" />
+    </fixed>
+    <fixed name="T_FFJ1u" range="-0.007 0.03" user="1200" limited="true">
+      <joint joint="FFJ0" coef="0.00705" />
+      <joint joint="FFJ1" coef="0.00805" />
+    </fixed>
+    <fixed name="T_FFJ1d" range="-0.03 0.007" user="1201" limited="true">
+      <joint joint="FFJ0" coef="-0.00705" />
+      <joint joint="FFJ1" coef="-0.00805" />
+    </fixed>
+    <fixed name="T_MFJ3r" range="-0.018 0.018" user="1210" limited="true">
+      <joint joint="MFJ3" coef="0.01" />
+    </fixed>
+    <fixed name="T_MFJ3l" range="-0.018 0.018" user="1211" limited="true">
+      <joint joint="MFJ3" coef="-0.01" />
+    </fixed>
+    <fixed name="T_MFJ2u" range="-0.007 0.03" user="1208" limited="true">
+      <joint joint="MFJ2" coef="0.01" />
+    </fixed>
+    <fixed name="T_MFJ2d" range="-0.03 0.007" user="1209" limited="true">
+      <joint joint="MFJ2" coef="-0.01" />
+    </fixed>
+    <fixed name="T_MFJ1c" range="-0.001 0.001" limited="true">
+      <joint joint="MFJ0" coef="0.00705" />
+      <joint joint="MFJ1" coef="-0.00805" />
+    </fixed>
+    <fixed name="T_MFJ1u" range="-0.007 0.03" user="1206" limited="true">
+      <joint joint="MFJ0" coef="0.00705" />
+      <joint joint="MFJ1" coef="0.00805" />
+    </fixed>
+    <fixed name="T_MFJ1d" range="-0.03 0.007" user="1207" limited="true">
+      <joint joint="MFJ0" coef="-0.00705" />
+      <joint joint="MFJ1" coef="-0.00805" />
+    </fixed>
+    <fixed name="T_RFJ3r" range="-0.018 0.018" user="1216" limited="true">
+      <joint joint="RFJ3" coef="0.01" />
+    </fixed>
+    <fixed name="T_RFJ3l" range="-0.018 0.018" user="1217" limited="true">
+      <joint joint="RFJ3" coef="-0.01" />
+    </fixed>
+    <fixed name="T_RFJ2u" range="-0.007 0.03" user="1214" limited="true">
+      <joint joint="RFJ2" coef="0.01" />
+    </fixed>
+    <fixed name="T_RFJ2d" range="-0.03 0.007" user="1215" limited="true">
+      <joint joint="RFJ2" coef="-0.01" />
+    </fixed>
+    <fixed name="T_RFJ1c" range="-0.001 0.001" limited="true">
+      <joint joint="RFJ0" coef="0.00705" />
+      <joint joint="RFJ1" coef="-0.00805" />
+    </fixed>
+    <fixed name="T_RFJ1u" range="-0.007 0.03" user="1212" limited="true">
+      <joint joint="RFJ0" coef="0.00705" />
+      <joint joint="RFJ1" coef="0.00805" />
+    </fixed>
+    <fixed name="T_RFJ1d" range="-0.03 0.007" user="1213" limited="true">
+      <joint joint="RFJ0" coef="-0.00705" />
+      <joint joint="RFJ1" coef="-0.00805" />
+    </fixed>
+    <fixed name="T_LFJ4u" range="-0.007 0.03" user="1224" limited="true">
+      <joint joint="LFJ4" coef="0.01" />
+    </fixed>
+    <fixed name="T_LFJ4d" range="-0.03 0.007" user="1225" limited="true">
+      <joint joint="LFJ4" coef="-0.01" />
+    </fixed>
+    <fixed name="T_LFJ3r" range="-0.018 0.018" user="1222" limited="true">
+      <joint joint="LFJ3" coef="0.01" />
+    </fixed>
+    <fixed name="T_LFJ3l" range="-0.018 0.018" user="1223" limited="true">
+      <joint joint="LFJ3" coef="-0.01" />
+    </fixed>
+    <fixed name="T_LFJ2u" range="-0.007 0.03" user="1220" limited="true">
+      <joint joint="LFJ2" coef="0.01" />
+    </fixed>
+    <fixed name="T_LFJ2d" range="-0.03 0.007" user="1221" limited="true">
+      <joint joint="LFJ2" coef="-0.01" />
+    </fixed>
+    <fixed name="T_LFJ1c" range="-0.001 0.001" limited="true">
+      <joint joint="LFJ0" coef="0.00705" />
+      <joint joint="LFJ1" coef="-0.00805" />
+    </fixed>
+    <fixed name="T_LFJ1u" range="-0.007 0.03" user="1218" limited="true">
+      <joint joint="LFJ0" coef="0.00705" />
+      <joint joint="LFJ1" coef="0.00805" />
+    </fixed>
+    <fixed name="T_LFJ1d" range="-0.03 0.007" user="1219" limited="true">
+      <joint joint="LFJ0" coef="-0.00705" />
+      <joint joint="LFJ1" coef="-0.00805" />
+    </fixed>
+    <fixed name="T_THJ4a" range="-0.018 0.018" user="1234" limited="true">
+      <joint joint="THJ4" coef="0.01636" />
+    </fixed>
+    <fixed name="T_THJ4c" range="-0.018 0.018" user="1235" limited="true">
+      <joint joint="THJ4" coef="-0.01636" />
+    </fixed>
+    <fixed name="T_THJ3u" range="-0.007 0.03" user="1232" limited="true">
+      <joint joint="THJ3" coef="0.01" />
+    </fixed>
+    <fixed name="T_THJ3d" range="-0.03 0.007" user="1233" limited="true">
+      <joint joint="THJ3" coef="-0.01" />
+    </fixed>
+    <fixed name="T_THJ2u" range="-0.018 0.018" user="1230" limited="true">
+      <joint joint="THJ2" coef="0.011" />
+    </fixed>
+    <fixed name="T_THJ2d" range="-0.018 0.018" user="1231" limited="true">
+      <joint joint="THJ2" coef="-0.011" />
+    </fixed>
+    <fixed name="T_THJ1r" range="-0.018 0.018" user="1228" limited="true">
+      <joint joint="THJ1" coef="0.011" />
+    </fixed>
+    <fixed name="T_THJ1l" range="-0.018 0.018" user="1229" limited="true">
+      <joint joint="THJ1" coef="-0.011" />
+    </fixed>
+    <fixed name="T_THJ0r" range="-0.03 0.007" user="1226" limited="true">
+      <joint joint="THJ0" coef="0.009" />
+    </fixed>
+    <fixed name="T_THJ0l" range="-0.007 0.03" user="1227" limited="true">
+      <joint joint="THJ0" coef="-0.009" />
+    </fixed>
+  </tendon>
+  <actuator>
+    <general biasprm="0 -200 0 0 0 0 0 0 0 0" biastype="affine" ctrllimited="true" ctrlrange="-0.25 0.25" gainprm="500 0 0 0 0 0 0 0 0 0" joint="ARTx" name="A_ARTx" user="0 1 0.03 0.0939711 0.513477 0.0358776 1.23598 8.40409 0.485031 6.04244 1.02187 0.175297 0.121642 0 0 0" />
+    <general biasprm="0 -200 0 0 0 0 0 0 0 0" biastype="affine" ctrllimited="true" ctrlrange="0 0.2" gainprm="500 0 0 0 0 0 0 0 0 0" joint="ARTy" name="A_ARTy" user="0 1 0.03 0.0939711 0.513477 0.0358776 1.23598 8.40409 0.485031 6.04244 1.02187 0.175297 0.121642 0 0 0" />
+    <general biasprm="0 -200 0 0 0 0 0 0 0 0" biastype="affine" ctrllimited="true" ctrlrange="-0.3 0.5" gainprm="500 0 0 0 0 0 0 0 0 0" joint="ARTz" name="A_ARTz" user="0 1 0.03 0.0939711 0.513477 0.0358776 1.23598 8.40409 0.485031 6.04244 1.02187 0.175297 0.121642 0 0 0" />
+    <general biasprm="0 -200 0 0 0 0 0 0 0 0" biastype="affine" ctrllimited="true" ctrlrange="-0.75 0.75" gainprm="500 0 0 0 0 0 0 0 0 0" joint="ARRx" name="A_ARRx" user="0 1 0.03 0.0939711 0.513477 0.0358776 1.23598 8.40409 0.485031 6.04244 1.02187 0.175297 0.121642 0 0 0" />
+    <general biasprm="0 -200 0 0 0 0 0 0 0 0" biastype="affine" ctrllimited="true" ctrlrange="-0.75 0.75" gainprm="500 0 0 0 0 0 0 0 0 0" joint="ARRy" name="A_ARRy" user="0 1 0.03 0.0939711 0.513477 0.0358776 1.23598 8.40409 0.485031 6.04244 1.02187 0.175297 0.121642 0 0 0" />
+    <general biasprm="0 -200 0 0 0 0 0 0 0 0" biastype="affine" ctrllimited="true" ctrlrange="-0.75 0.75" gainprm="500 0 0 0 0 0 0 0 0 0" joint="ARRz" name="A_ARRz" user="0 1 0.03 0.0939711 0.513477 0.0358776 1.23598 8.40409 0.485031 6.04244 1.02187 0.175297 0.121642 0 0 0" />
+    <general biasprm="0 -10 0 0 0 0 0 0 0 0" biastype="affine" ctrllimited="true" ctrlrange="-0.524 0.175" gainprm="10 0 0 0 0 0 0 0 0 0" joint="WRJ1" name="A_WRJ1" user="1002 0 2001 -0.02 0.02 0 0 0 0 0 0 0 0 0 0 0" />
+    <general biasprm="0 -10 0 0 0 0 0 0 0 0" biastype="affine" ctrllimited="true" ctrlrange="-0.79 0.61" gainprm="10 0 0 0 0 0 0 0 0 0" joint="WRJ0" name="A_WRJ0" user="1002 0 2001 -0.02 0.02 0 0 0 0 0 0 0 0 0 0 0" />
+    <general biasprm="0 -1 0 0 0 0 0 0 0 0" biastype="affine" ctrllimited="true" ctrlrange="-0.44 0.44" joint="FFJ3" name="A_FFJ3" user="1002 0 2001 -0.1 0.1 0 0 0 0 0 0 0 0 0 0 0" />
+    <general biasprm="0 -1 0 0 0 0 0 0 0 0" biastype="affine" ctrllimited="true" ctrlrange="0 1.6" joint="FFJ2" name="A_FFJ2" user="1002 0 2001 -0.1 0.1 0 0 0 0 0 0 0 0 0 0 0" />
+    <general biasprm="0 -1 0 0 0 0 0 0 0 0" biastype="affine" ctrllimited="true" ctrlrange="0 1.6" joint="FFJ1" name="A_FFJ1" user="1002 0 2001 -0.1 0.1 0 0 0 0 0 0 0 0 0 0 0" />
+    <general biasprm="0 -1 0 0 0 0 0 0 0 0" biastype="affine" ctrllimited="true" ctrlrange="0 1.6" joint="FFJ0" name="A_FFJ0" user="1002 0 2001 -0.1 0.1 0 0 0 0 0 0 0 0 0 0 0" />
+    <general biasprm="0 -1 0 0 0 0 0 0 0 0" biastype="affine" ctrllimited="true" ctrlrange="-0.44 0.44" joint="MFJ3" name="A_MFJ3" user="1002 0 2001 -0.1 0.1 0 0 0 0 0 0 0 0 0 0 0" />
+    <general biasprm="0 -1 0 0 0 0 0 0 0 0" biastype="affine" ctrllimited="true" ctrlrange="0 1.6" joint="MFJ2" name="A_MFJ2" user="1002 0 2001 -0.1 0.1 0 0 0 0 0 0 0 0 0 0 0" />
+    <general biasprm="0 -1 0 0 0 0 0 0 0 0" biastype="affine" ctrllimited="true" ctrlrange="0 1.6" joint="MFJ1" name="A_MFJ1" user="1002 0 2001 -0.1 0.1 0 0 0 0 0 0 0 0 0 0 0" />
+    <general biasprm="0 -1 0 0 0 0 0 0 0 0" biastype="affine" ctrllimited="true" ctrlrange="0 1.6" joint="MFJ0" name="A_MFJ0" user="1002 0 2001 -0.1 0.1 0 0 0 0 0 0 0 0 0 0 0" />
+    <general biasprm="0 -1 0 0 0 0 0 0 0 0" biastype="affine" ctrllimited="true" ctrlrange="-0.44 0.44" joint="RFJ3" name="A_RFJ3" user="1002 0 2001 -0.1 0.1 0 0 0 0 0 0 0 0 0 0 0" />
+    <general biasprm="0 -1 0 0 0 0 0 0 0 0" biastype="affine" ctrllimited="true" ctrlrange="0 1.6" joint="RFJ2" name="A_RFJ2" user="1002 0 2001 -0.1 0.1 0 0 0 0 0 0 0 0 0 0 0" />
+    <general biasprm="0 -1 0 0 0 0 0 0 0 0" biastype="affine" ctrllimited="true" ctrlrange="0 1.6" joint="RFJ1" name="A_RFJ1" user="1002 0 2001 -0.1 0.1 0 0 0 0 0 0 0 0 0 0 0" />
+    <general biasprm="0 -1 0 0 0 0 0 0 0 0" biastype="affine" ctrllimited="true" ctrlrange="0 1.6" joint="RFJ0" name="A_RFJ0" user="1002 0 2001 -0.1 0.1 0 0 0 0 0 0 0 0 0 0 0" />
+    <general biasprm="0 -1 0 0 0 0 0 0 0 0" biastype="affine" ctrllimited="true" ctrlrange="0 0.7" joint="LFJ4" name="A_LFJ4" user="1002 0 2001 -0.1 0.1 0 0 0 0 0 0 0 0 0 0 0" />
+    <general biasprm="0 -1 0 0 0 0 0 0 0 0" biastype="affine" ctrllimited="true" ctrlrange="-0.44 0.44" joint="LFJ3" name="A_LFJ3" user="1002 0 2001 -0.1 0.1 0 0 0 0 0 0 0 0 0 0 0" />
+    <general biasprm="0 -1 0 0 0 0 0 0 0 0" biastype="affine" ctrllimited="true" ctrlrange="0 1.6" joint="LFJ2" name="A_LFJ2" user="1002 0 2001 -0.1 0.1 0 0 0 0 0 0 0 0 0 0 0" />
+    <general biasprm="0 -1 0 0 0 0 0 0 0 0" biastype="affine" ctrllimited="true" ctrlrange="0 1.6" joint="LFJ1" name="A_LFJ1" user="1002 0 2001 -0.1 0.1 0 0 0 0 0 0 0 0 0 0 0" />
+    <general biasprm="0 -1 0 0 0 0 0 0 0 0" biastype="affine" ctrllimited="true" ctrlrange="0 1.6" joint="LFJ0" name="A_LFJ0" user="1002 0 2001 -0.1 0.1 0 0 0 0 0 0 0 0 0 0 0" />
+    <general biasprm="0 -1 0 0 0 0 0 0 0 0" biastype="affine" ctrllimited="true" ctrlrange="-1 1" joint="THJ4" name="A_THJ4" user="1002 0 2001 -0.1 0.1 0 0 0 0 0 0 0 0 0 0 0" />
+    <general biasprm="0 -1 0 0 0 0 0 0 0 0" biastype="affine" ctrllimited="true" ctrlrange="0 1.3" joint="THJ3" name="A_THJ3" user="1002 0 2001 -0.1 0.1 0 0 0 0 0 0 0 0 0 0 0" />
+    <general biasprm="0 -1 0 0 0 0 0 0 0 0" biastype="affine" ctrllimited="true" ctrlrange="-0.26 0.26" joint="THJ2" name="A_THJ2" user="1002 0 2001 -0.1 0.1 0 0 0 0 0 0 0 0 0 0 0" />
+    <general biasprm="0 -1 0 0 0 0 0 0 0 0" biastype="affine" ctrllimited="true" ctrlrange="-0.52 0.52" joint="THJ1" name="A_THJ1" user="1002 0 2001 -0.1 0.1 0 0 0 0 0 0 0 0 0 0 0" />
+    <general biasprm="0 -1 0 0 0 0 0 0 0 0" biastype="affine" ctrllimited="true" ctrlrange="-1.571 0" joint="THJ0" name="A_THJ0" user="1002 0 2001 -0.1 0.1 0 0 0 0 0 0 0 0 0 0 0" />
+  </actuator>
+  <sensor>
+    <actuatorfrc actuator="A_WRJ1" name="Saf_A_WRJ1" />
+    <actuatorfrc actuator="A_WRJ0" name="Saf_A_WRJ0" />
+    <actuatorfrc actuator="A_FFJ3" name="Saf_A_FFJ3" />
+    <actuatorfrc actuator="A_FFJ2" name="Saf_A_FFJ2" />
+    <actuatorfrc actuator="A_FFJ1" name="Saf_A_FFJ1" />
+    <actuatorfrc actuator="A_MFJ3" name="Saf_A_MFJ3" />
+    <actuatorfrc actuator="A_MFJ2" name="Saf_A_MFJ2" />
+    <actuatorfrc actuator="A_MFJ1" name="Saf_A_MFJ1" />
+    <actuatorfrc actuator="A_RFJ3" name="Saf_A_RFJ3" />
+    <actuatorfrc actuator="A_RFJ2" name="Saf_A_RFJ2" />
+    <actuatorfrc actuator="A_RFJ1" name="Saf_A_RFJ1" />
+    <actuatorfrc actuator="A_LFJ4" name="Saf_A_LFJ4" />
+    <actuatorfrc actuator="A_LFJ3" name="Saf_A_LFJ3" />
+    <actuatorfrc actuator="A_LFJ2" name="Saf_A_LFJ2" />
+    <actuatorfrc actuator="A_LFJ1" name="Saf_A_LFJ1" />
+    <actuatorfrc actuator="A_THJ4" name="Saf_A_THJ4" />
+    <actuatorfrc actuator="A_THJ3" name="Saf_A_THJ3" />
+    <actuatorfrc actuator="A_THJ2" name="Saf_A_THJ2" />
+    <actuatorfrc actuator="A_THJ1" name="Saf_A_THJ1" />
+    <actuatorfrc actuator="A_THJ0" name="Saf_A_THJ0" />
+    <touch site="Tch_fftip" name="ST_Tch_fftip" />
+    <touch site="Tch_mftip" name="ST_Tch_mftip" />
+    <touch site="Tch_rftip" name="ST_Tch_rftip" />
+    <touch site="Tch_lftip" name="ST_Tch_lftip" />
+    <touch site="Tch_thtip" name="ST_Tch_thtip" />
+    <touch site="Tch_ffmiddle" name="ST_Tch_ffmiddle" />
+    <touch site="Tch_mfmiddle" name="ST_Tch_mfmiddle" />
+    <touch site="Tch_rfmiddle" name="ST_Tch_rfmiddle" />
+    <touch site="Tch_lfmiddle" name="ST_Tch_lfmiddle" />
+    <touch site="Tch_thmiddle" name="ST_Tch_thmiddle" />
+    <touch site="Tch_ffproximal" name="ST_Tch_ffproximal" />
+    <touch site="Tch_mfproximal" name="ST_Tch_mfproximal" />
+    <touch site="Tch_rfproximal" name="ST_Tch_rfproximal" />
+    <touch site="Tch_lfproximal" name="ST_Tch_lfproximal" />
+    <touch site="Tch_thproximal" name="ST_Tch_thproximal" />
+    <touch site="Tch_ffmetacarpal" name="ST_Tch_ffmetacarpal" />
+    <touch site="Tch_mfmetacarpal" name="ST_Tch_mfmetacarpal" />
+    <touch site="Tch_rfmetacarpal" name="ST_Tch_rfmetacarpal" />
+    <touch site="Tch_lfmetacarpal" name="ST_Tch_lfmetacarpal" />
+    <touch site="Tch_thmetacarpal" name="ST_Tch_thmetacarpal" />
+    <touch site="Tch_palm" name="ST_Tch_palm" />
+    <jointpos joint="WRJ1" name="Sjp_WRJ1" />
+    <jointpos joint="WRJ0" name="Sjp_WRJ0" />
+    <jointpos joint="FFJ3" name="Sjp_FFJ3" />
+    <jointpos joint="FFJ2" name="Sjp_FFJ2" />
+    <jointpos joint="FFJ1" name="Sjp_FFJ1" />
+    <jointpos joint="FFJ0" name="Sjp_FFJ0" />
+    <jointpos joint="MFJ3" name="Sjp_MFJ3" />
+    <jointpos joint="MFJ2" name="Sjp_MFJ2" />
+    <jointpos joint="MFJ1" name="Sjp_MFJ1" />
+    <jointpos joint="MFJ0" name="Sjp_MFJ0" />
+    <jointpos joint="RFJ3" name="Sjp_RFJ3" />
+    <jointpos joint="RFJ2" name="Sjp_RFJ2" />
+    <jointpos joint="RFJ1" name="Sjp_RFJ1" />
+    <jointpos joint="RFJ0" name="Sjp_RFJ0" />
+    <jointpos joint="LFJ4" name="Sjp_LFJ4" />
+    <jointpos joint="LFJ3" name="Sjp_LFJ3" />
+    <jointpos joint="LFJ2" name="Sjp_LFJ2" />
+    <jointpos joint="LFJ1" name="Sjp_LFJ1" />
+    <jointpos joint="LFJ0" name="Sjp_LFJ0" />
+    <jointpos joint="THJ4" name="Sjp_THJ4" />
+    <jointpos joint="THJ3" name="Sjp_THJ3" />
+    <jointpos joint="THJ2" name="Sjp_THJ2" />
+    <jointpos joint="THJ1" name="Sjp_THJ1" />
+    <jointpos joint="THJ0" name="Sjp_THJ0" />
+  </sensor>
+<equality /></mujoco>
